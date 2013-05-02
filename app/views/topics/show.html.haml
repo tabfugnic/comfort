@@ -1,0 +1,19 @@
+%p
+  %b Name:
+  = @topic.name
+%p
+  %b Description:
+  = @topic.description
+
+%meter#comfort-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
+%input#comfort-index{type: :number, min: 0, max: 100 }
+%br
+%meter#interest-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
+%input#interest-index{type: :number, min: 0, max: 100 }
+%br
+%meter#priority-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
+%p#priority-index 1
+
+= link_to 'Edit', edit_topic_path(@topic)
+\|
+= link_to 'Back', topics_path

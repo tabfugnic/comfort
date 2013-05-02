@@ -1,0 +1,61 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+#header {
+  padding: 10px;
+  overflow: hidden;
+  background-color: lightblue;
+  box-shadow: 0px -4px 5px 0px #AAA inset;
+
+  h2 {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 0 5px 0 8px;
+      border-left: 1px solid #AAA;
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+
+}
+
+#notice {
+  background-color: lightgreen;
+}
+#alert {
+  background-color: lightyellow;
+}
+#error {
+  background-color: lightred;
+}
+#alert, #error, #notice {
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+  line-height: 40px;
+  animation: flash .5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-delay: 4s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+@keyframes flash {
+  from {
+    line-height: 40px;
+  }
+  to {
+    line-height: 0px;
+  }
+}
+#main {
+  padding: 10px;
+}

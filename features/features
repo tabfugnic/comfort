@@ -1,0 +1,36 @@
+General
+Users are required to sign_in/sign_up to use this application
+Users must see a frontpage to inform them of this
+
+Navigation
+Users see their name/email when signed in
+Users can sign out
+Logo takes them to the topics index page
+
+Topics
+Users can create new topics
+### Users can give ratings of comfort and interest on the index page
+Users can give ratings of comfort and interest on the topic show page
+Priority level for a topic is calculated from comfort and interest from everyone
+Topics should be in order of priority level
+Multiple topics shows brief description and priority level
+Rating of comfort is a slider
+Rating of interest is a slider
+Admins can manage all
+
+Comment
+Users can comment on topics
+Users can comment on comments one level deep
+Comments are updated via ajax rather than reloading the page
+Comments could be constantly updated
+Admins can do anything to a comment
+Comments allow rich text
+
+Users
+All users sign in using google oauth2
+Admins can specify admins
+Admins can manage everything
+Users signed in from google take info from google
+All information from google can be updated/changed
+Users can view other users pages
+Existing users are signed into their previous profile
