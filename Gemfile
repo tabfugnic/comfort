@@ -34,6 +34,7 @@ group :test do
   # Test framework
   gem 'gherkin'
   gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'database_cleaner'
 end

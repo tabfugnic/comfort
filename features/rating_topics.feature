@@ -3,6 +3,7 @@ Feature: Rating topics
   As a user
   I should be able to rate topics
 
+  @javascript
   Scenario: Rating comfort and interest sliders
     Given I am signed in
     And a topic exists

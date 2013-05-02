@@ -22,17 +22,18 @@ When /submit invalid topic (?:form|data)/ do
 end
 
 When /adjust comfort/ do
-  @priority ||= 0
+  @priority ||= find("#priority-index").text.to_i
   fill_in("comfort-index", with: 30)
 end
 
 When /adjust interest/ do
-  @priority ||= 0
+  @priority ||= find("#priority-index").text.to_i
   fill_in("interest-index", with: 20)
 end
 
 Then /should see the priority change/ do
-  find(:css, "#priority-index").should_not eq(@priority)
+  find("#priority-index").click
+  find("#priority-index").text.to_i.should_not eq(@priority)
 end
 
 Then /should see the topic submitted successfully/ do

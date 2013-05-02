@@ -6,14 +6,18 @@
   = @topic.description
 
 %meter#comfort-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%input#comfort-index{type: :number, min: 0, max: 100 }
+%input#comfort-index{type: :number, min: 0, max: 100, value: 0 }
 %br
 %meter#interest-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%input#interest-index{type: :number, min: 0, max: 100 }
+%input#interest-index{type: :number, min: 0, max: 100, value: 0 }
 %br
 %meter#priority-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%p#priority-index 1
+%div#priority-index 1
 
 = link_to 'Edit', edit_topic_path(@topic)
 \|
 = link_to 'Back', topics_path
+
+:coffeescript
+  topic = new Topic
+  topic.trackIndex()
