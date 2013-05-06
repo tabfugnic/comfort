@@ -15,4 +15,12 @@ describe Topic do
     end
 
   end
+
+  describe "#priority" do
+    it "takes an average of all ratings priority level" do
+      topic = FactoryGirl.create(:topic, ratings: [ FactoryGirl.build(:rating, comfort: 0, interest: 100), FactoryGirl.build(:rating, comfort: 100, interest: 0) ])
+      topic.priority.should eq 50
+    end
+  end
 end
+
