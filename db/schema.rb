@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429040337) do
+ActiveRecord::Schema.define(:version => 20130505045157) do
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.integer  "comfort",    :default => 50
+    t.integer  "interest",   :default => 50
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "name"
