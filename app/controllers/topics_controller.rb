@@ -1,13 +1,12 @@
 class TopicsController < ApplicationController
+
   # GET /topics
   # GET /topics.json
   def index
-
     @topics = Topic.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @topics }
+      format.html
     end
   end
 
@@ -15,9 +14,10 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
+    @rating = Rating.where(user_id: current_user.id).first_or_initialize
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @topic }
     end
   end
