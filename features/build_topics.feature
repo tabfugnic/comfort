@@ -16,8 +16,8 @@ Feature: Build Topics
 
   Scenario: Sorted topic priority level
     Given I am signed in
-    And valid topics exists
-    And I have rated those topics
+    And 3 topics exist
+    And I have rated each topic
     When I visit the topic index
     Then I should see the priority rating of each
-    And I should see each topic sorted priority
+    And I should see each topic sorted by priority

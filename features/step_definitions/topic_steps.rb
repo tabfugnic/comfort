@@ -2,12 +2,20 @@ Given /a topic exists/ do
   @topic = FactoryGirl.create(:topic)
 end
 
+Given /(\d+) topics exist/ do |num|
+  @topics = FactoryGirl.create_list(:topic, num.to_i)
+end
+
 Given /am on a topic page/ do
   visit topic_path(@topic)
 end
 
-When /(?:follow|go to|am on) the create topic (?:link|page)/ do
+When /(?:follow|go to|am on|visit) the create topic (?:link|page)/ do
   visit new_topic_path
+end
+
+When /(?:follow|go to|visit) the topic index ?(?:|link|page)/ do
+  visit topics_path
 end
 
 When /submit valid topic (?:form|data)/ do
