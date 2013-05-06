@@ -1,11 +1,27 @@
-%p#notice= notice
 
 %p
-  %b Name:
-  = @user.name
+  %b UID:
+  = @user.uid
 %p
-  %b Authentication hash:
-  = @user.authentication_hash
+  %b Provider:
+  = @user.provider
+%p
+  %b First Name:
+  = @user.first_name
+%p
+  %b Last Name:
+  = @user.last_name
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Avatar:
+  = image_tag @user.avatar
+
+%h2 Recent Topics
+
+= render partial: "topic", collection: @user.topics.order("id DESC")
+
 
 = link_to 'Edit', edit_user_path(@user)
 \|

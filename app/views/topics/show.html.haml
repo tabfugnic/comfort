@@ -5,14 +5,14 @@
   %b Description:
   = @topic.description
 
-%meter#comfort-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%input#comfort-index{type: :number, min: 0, max: 100, value: 0 }
+%meter#comfort-meter{high: 80, low: 20, min: 0, max: 100, value: @rating.comfort}
+%input#comfort-index{type: :range, min: 0, max: 100, value: @rating.comfort }
 %br
-%meter#interest-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%input#interest-index{type: :number, min: 0, max: 100, value: 0 }
+%meter#interest-meter{high: 80, low: 20, min: 0, max: 100, value: @rating.interest }
+%input#interest-index{type: :range, min: 0, max: 100, value: @rating.interest }
 %br
 %meter#priority-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-%div#priority-index 1
+%div#priority-index= (100 - @rating.comfort + @rating.interest) / 2
 
 = link_to 'Edit', edit_topic_path(@topic)
 \|
