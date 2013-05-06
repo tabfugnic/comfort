@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :provider, :uid, :first_name, :last_name, :email, :avatar
+  attr_accessible :username, :provider, :uid, :first_name, :last_name, :email, :avatar, :topics, :ratings
+
+  attr_reader :username
+
+  has_many :ratings
+  has_many :topics, through: :ratings
 
   def self.where_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
