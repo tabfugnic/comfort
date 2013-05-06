@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :sign_in, :user_signed_in?, :current_user, :sign_out
-  before_filter :autherize_user!, except: :welcome
+  before_filter :authorize_user!, except: :welcome
   # Sign in a user
   def sign_in(user)
     session[:user_id] = user.id
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     reset_session
   end
 
-  def autherize_user!
+  def authorize_user!
     return redirect_to controller: :static, action: :welcome unless user_signed_in?
   end
 
