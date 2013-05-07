@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user!
-    return redirect_to controller: :static, action: :welcome unless user_signed_in?
+    return redirect_to welcome_url unless user_signed_in?
   end
 
 end

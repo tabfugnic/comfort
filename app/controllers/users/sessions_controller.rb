@@ -1,5 +1,5 @@
 class Users::SessionsController < UsersController
-  skip_before_filter :autherize_user!
+  skip_before_filter :authorize_user!
   ### New sessions for logging a user in
   def new
     redirect_to "/auth/google_oauth2"
