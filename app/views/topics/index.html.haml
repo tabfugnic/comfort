@@ -1,21 +1,5 @@
-%h1 Listing topics
+%h1 Topics
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
-
-  - @topics.each do |topic|
-    %tr
-      %td= topic.name
-      %td= topic.description
-      %td= link_to 'Show', topic
-      %td= link_to 'Edit', edit_topic_path(topic)
-      %td= link_to 'Destroy', topic, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+= render partial: "topic", collection: @topics
 
 = link_to 'New Topic', new_topic_path

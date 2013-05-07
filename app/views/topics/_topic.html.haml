@@ -1,0 +1,7 @@
+.topic{ id: "topic-#{topic.id}" }
+  %h2= topic.name
+  %h4= topic.description
+
+  .priority{ id: "priority-#{topic.id}" }
+    %meter.pm-meter{ high: 80, low: 20, min: 0, max: 100, value: "#{topic.priority}" }
+    .pm-index= topic.priority
