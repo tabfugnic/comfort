@@ -20,10 +20,11 @@ describe TopicsController do
     end
     context "a relationship exists between user and topic" do
       before do
-        @topic.update_attributes({users: [@user]})
+        @rating = FactoryGirl.create(:rating, user: @user, topic:  @topic)
       end
       it "finds the previous rating relationship" do
-
+        get :show, id: @topic.id
+        assigns(:rating).should eq(@rating)
       end
     end
   end

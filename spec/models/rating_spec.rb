@@ -5,6 +5,7 @@ describe Rating do
   let(:rating) { mock_model(Rating) }
   it { should be_instance_of(Rating) }
   context "defaults" do
+
     it "defaults comfort and interest to 50" do
       rating = Rating.new
       rating.comfort.should eq(50)
