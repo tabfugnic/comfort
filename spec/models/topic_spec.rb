@@ -21,6 +21,10 @@ describe Topic do
       topic = FactoryGirl.create(:topic, ratings: [ FactoryGirl.build(:rating, comfort: 0, interest: 100), FactoryGirl.build(:rating, comfort: 100, interest: 0) ])
       topic.priority.should eq 50
     end
+    it "returns 0 if there are no ratings" do
+      topic = FactoryGirl.create(:topic)
+      topic.priority.should eq 0
+    end
   end
 end
 
