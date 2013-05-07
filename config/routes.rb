@@ -1,8 +1,10 @@
 Comfort::Application.routes.draw do
   root to: "topics#index"
 
-  get "welcome" => "static#welcome"
-  resources :topics
+  get "welcome" => "static#welcome", as: :welcome
+  resources :topics do
+    resources :ratings
+  end
 
   namespace :users do
     get "sign_in" => "sessions#new"
@@ -12,6 +14,5 @@ Comfort::Application.routes.draw do
   end
   get "/auth/google_oauth2/callback" => "users/sessions#create"
   resources :users
-
 
 end
