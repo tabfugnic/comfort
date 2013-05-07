@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-    @rating = Rating.where(user_id: current_user.id).first_or_initialize
+    @rating = Rating.where(user_id: current_user.id, topic_id: @topic.id).first_or_initialize
 
     respond_to do |format|
       format.html
