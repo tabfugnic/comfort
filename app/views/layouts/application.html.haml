@@ -7,7 +7,7 @@
     = csrf_meta_tags
   %body
     #header
-      %h2 Comfort
+      %h1= link_to "Comfort", "/", {id: "logo"}
       %ul
         - unless user_signed_in?
           %li= link_to "Sign In", "/users/sign_in"
@@ -19,3 +19,5 @@
     #notice= flash[:notice]
     #main
       = yield
+    #secondary
+      = yield(:secondary)
