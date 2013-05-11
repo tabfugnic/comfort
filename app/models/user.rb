@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :topics, through: :ratings
 
+  has_one :comment
+
   def self.where_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider

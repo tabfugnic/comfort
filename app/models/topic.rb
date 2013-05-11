@@ -5,6 +5,8 @@ class Topic < ActiveRecord::Base
   has_many :ratings
   has_many :users, through: :ratings
 
+  has_many :comments, as: :commentable, include: :comments
+
   ## Get priority topic based upon aggregate ratings
   def priority
     return 0 if ratings.length == 0
