@@ -14,7 +14,7 @@ When /(?:follow|go to|am on|visit) the create topic (?:link|page)/ do
   visit new_topic_path
 end
 
-When /(?:follow|go to|visit) the topic index ?(?:|link|page)/ do
+When /(?:follow|go to|visit) the topics? index ?(?:|link|page)/ do
   visit topics_path
 end
 
