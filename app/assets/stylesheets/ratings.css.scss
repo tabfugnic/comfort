@@ -1,0 +1,16 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rating {
+  h4 {
+    margin-bottom: 0;
+  }
+  meter {
+    width: 100%;
+  }
+  input[type='range'] {
+    width: 99%;
+    margin: 0;
+  }
+}
