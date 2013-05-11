@@ -1,5 +1,5 @@
 .topic{ id: "topic-#{topic.id}" }
-  %h2= topic.name
+  %h2=link_to topic.name, topic_path(topic)
   %h4= topic.description
 
   .priority{ id: "priority-#{topic.id}" }

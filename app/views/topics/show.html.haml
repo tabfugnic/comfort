@@ -1,23 +1,30 @@
-%p
-  %b Name:
-  = @topic.name
+%h2= @topic.name
 %p
   %b Description:
   = @topic.description
 
-%meter#comfort-meter{high: 80, low: 20, min: 0, max: 100, value: @rating.comfort}
-%input#comfort-index{type: :range, min: 0, max: 100, value: @rating.comfort }
-%br
-%meter#interest-meter{high: 80, low: 20, min: 0, max: 100, value: @rating.interest }
-%input#interest-index{type: :range, min: 0, max: 100, value: @rating.interest }
-%br
-%meter#priority-meter{high: 80, low: 20, min: 0, max: 100, value: 0}
-#priority-index= (100 - @rating.comfort + @rating.interest) / 2
+= form_for [@topic,@rating], html: { class: "rating" }  do |f|
+  %h4 Comfort
+  %meter#comfort-meter{low: 30, min: 0, max: 100, value: @rating.comfort}
+  %br
+  = f.text_field :comfort, id: "comfort-index", type: :range
+  %br
+  %h4 Interest
+  %meter#interest-meter{high: 70, min: 0, max: 100, value: @rating.interest }
+  %br
+  = f.text_field :interest, id: "interest-index", type: :range
+  %br
+  %h4 Priority
+  %meter#priority-meter{high: 80, low: 20, min: 0, max: 100, value: @rating.priority}
+  #priority-index= @rating.priority
+  = f.submit "Rate the Topic"
 
 = link_to 'Edit', edit_topic_path(@topic)
 \|
 = link_to 'Back', topics_path
 
+- content_for :secondary do
+  = render partial: "comments/comment", collection: @topic.comments
 :coffeescript
   topic = new Topic
   topic.trackIndex()
