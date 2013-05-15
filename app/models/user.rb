@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   has_one :comment
 
+  ##
+  #  Return on omniauth and use return to populate user
+  #
   def self.where_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
@@ -17,6 +20,14 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.avatar = auth.info.image
     end
+  end
+
+  ##
+  # display user name beautifully
+  #
+  def display_name
+    return "#{first_name} #{last_name}".strip if first_name
+    return email
   end
 end
 
