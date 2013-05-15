@@ -1,6 +1,6 @@
 When /comment on a topic/ do
   @comment_text = "Random text"
-  fill_in("#new_comment", with: @comment_text)
+  fill_in("Content", with: @comment_text)
 end
 
 When /comment on a comment/ do
