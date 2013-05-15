@@ -25,6 +25,8 @@
 
 - content_for :secondary do
   = render partial: "comments/comment", collection: @topic.comments
+  = render "comments/form", comment: @topic.comments.build
+
 :coffeescript
   topic = new Topic
   topic.trackIndex()
