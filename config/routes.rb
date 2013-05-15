@@ -6,6 +6,8 @@ Comfort::Application.routes.draw do
     resources :ratings
   end
 
+  resources :comments
+
   namespace :users do
     get "sign_in" => "sessions#new"
     get "sign_up" => "sessions#new"
