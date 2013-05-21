@@ -1,11 +1,12 @@
 require 'spec_helper'
 describe TopicsController do
-
+  before do
+    @user = FactoryGirl.create(:user)
+    session[:user_id] = @user.id
+  end
   describe "GET show" do
     before do
-      @user = FactoryGirl.create(:user)
       @topic = FactoryGirl.create(:topic)
-      session[:user_id] = @user.id
     end
     it "assigns the requested topic as @topic" do
       get :show, id: @topic.id
@@ -26,6 +27,18 @@ describe TopicsController do
         get :show, id: @topic.id
         assigns(:rating).should eq(@rating)
       end
+    end
+  end
+  describe "GET index" do
+    before do
+      @topics = FactoryGirl.create_list(:topic, 2)
+      @topics.first.stub(:priority).and_return(0)
+      @topics.last.stub(:priority).and_return(100)
+    end
+    it "displays topics in order of priority" do
+      get :index
+      assigns(:topics).first.should eq @topics.last
+      assigns(:topics).last.should eq @topics.first
     end
   end
 end

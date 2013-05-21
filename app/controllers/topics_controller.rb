@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 
   # GET /topics
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:ratings).sort_by(&:priority).reverse # non trivial and ripe for refactor
     respond_to do |format|
       format.html
     end
