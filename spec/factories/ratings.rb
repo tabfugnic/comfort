@@ -4,8 +4,8 @@ FactoryGirl.define do
   factory :rating do
     user
     topic
-    sequence(:comfort) {|n| rand(100) }
-    sequence(:interest) {|n| rand(100) }
+    sequence(:comfort) {|n| rand(50) + 50 }
+    sequence(:interest) {|n| rand(50) + 50 }
   end
 
 end
