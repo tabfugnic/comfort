@@ -12,4 +12,3 @@ Feature: Rating topics
     Then I should see the priority change
     When I adjust interest
     Then I should see the priority change
-
