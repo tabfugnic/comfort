@@ -1,0 +1,19 @@
+.comment {
+  padding: 5px;
+  border-bottom: 1px dotted #888;
+  overflow: hidden;
+  .posted_on, .reply {
+    font-size: 80%;
+    margin: 0;
+  }
+  .posted_on {
+    float: left;
+  }
+  .reply {
+    float: right;
+  }
+  .content {
+    padding-left: 4px;
+    border-left: 2px solid #aa0;
+  }
+}
