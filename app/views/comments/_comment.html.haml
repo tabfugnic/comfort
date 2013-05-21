@@ -1,3 +1,6 @@
-%p
-  %b #{comment.user.display_name} posted
-%p= comment.content
+.comment{ id: "comment-#{comment.id}" }
+  %h4= comment.user.display_name
+  %p.content= comment.content
+  %p.posted_on Posted: #{comment.created_at}
+  = link_to "Reply", "#{comment.id}", class: "reply"
+  = render partial: "comments/comment", collection: comment.comments

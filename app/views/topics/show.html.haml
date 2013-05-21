@@ -28,5 +28,9 @@
   = render "comments/form", comment: @topic.comments.build
 
 :coffeescript
-  topic = new Topic
-  topic.trackIndex()
+  $ ->
+   topic = new Topic
+   topic.trackIndex()
+
+   comment = new Comment
+   comment.commentReply()
