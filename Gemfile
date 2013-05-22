@@ -38,6 +38,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem 'headless'
 end
 
 group :development do
