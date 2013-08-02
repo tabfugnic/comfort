@@ -28,3 +28,7 @@ Then /comment should be added within the comment/ do
     page.should have_content @comment_text
   end
 end
+
+Then /^I should not be able to comment on a nested comment$/ do
+  page.should_not have_selector "#comment-#{@comment.comments.first.id} .reply"
+end

@@ -18,3 +18,4 @@ Feature: Topic comments
     And I am on a topic page
     When I comment on a comment
     Then the comment should be added within the comment
+    And I should not be able to comment on a nested comment

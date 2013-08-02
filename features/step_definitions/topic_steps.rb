@@ -40,7 +40,7 @@ When /adjust interest/ do
 end
 
 Then /should see the priority change/ do
-  find("#priority-index").click
+  find("#priority-index").click # click off of the priority stuff
   find("#priority-index").text.to_i.should_not eq(@priority)
 end
 
