@@ -18,4 +18,20 @@ describe Comment do
       FactoryGirl.build(:comment, user: nil).should_not be_valid
     end
   end
+
+  describe "#topic" do
+    let(:topic) { FactoryGirl.create(:topic) }
+
+    it "returns the topic associated with it" do
+      comment = FactoryGirl.create(:comment, commentable_id: topic.id )
+      comment.topic.should eq topic
+    end
+
+    it "finds the top level topic" do
+      comment = FactoryGirl.create(:comment, commentable_id: topic.id )
+      comment = FactoryGirl.create(:comment, :comment, commentable_id: comment.id )
+      comment.topic.should eq topic
+    end
+
+  end
 end

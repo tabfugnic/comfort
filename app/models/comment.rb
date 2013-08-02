@@ -6,4 +6,10 @@ class Comment < ActiveRecord::Base
 
   validates :content, :commentable_type, :commentable_id, :user_id, presence: true
 
+
+  def topic
+    return commentable unless commentable_type == "Comment"
+    return commentable.topic
+  end
+
 end

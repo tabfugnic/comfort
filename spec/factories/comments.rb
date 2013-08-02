@@ -6,5 +6,9 @@ FactoryGirl.define do
     content "MyText"
     commentable_type "Topic"
     commentable_id 1
+
+    trait :comment do
+      commentable_type "Comment"
+    end
   end
 end
