@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 
   # GET /topics
   def index
-    @topics = Topic.includes(:ratings).sort_by(&:priority).reverse # non trivial and ripe for refactor
+    @topics = Topic.includes(:ratings).sort_by { |r| r.priority.to_i }.reverse # non trivial and ripe for refactor
     respond_to do |format|
       format.html
     end

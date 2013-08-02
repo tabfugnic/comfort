@@ -2,6 +2,12 @@
   %h2=link_to topic.name, topic_path(topic)
   %h4= topic.description
 
-  .priority{ id: "priority-#{topic.id}" }
+  %h3 Team Priority
+  .team-priority
     %meter.pm-meter{ high: 80, low: 20, min: 0, max: 100, value: "#{topic.priority}" }
-    .pm-index= topic.priority
+    .pm-index= topic.priority || "No one has rated this topic yet"
+
+  %h3 Personal Priority
+  .personal-priority
+    %meter.pm-meter{ high: 80, low: 20, min: 0, max: 100, value: "#{current_user.priority(topic)}" }
+    .pm-index= current_user.priority(topic) || "You have not rated this topic yet"

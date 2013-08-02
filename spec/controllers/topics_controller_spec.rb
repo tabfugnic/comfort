@@ -32,7 +32,7 @@ describe TopicsController do
   describe "GET index" do
     before do
       @topics = FactoryGirl.create_list(:topic, 2)
-      @topics.first.stub(:priority).and_return(0)
+      @topics.first.stub(:priority).and_return(nil)
       @topics.last.stub(:priority).and_return(100)
     end
     it "displays topics in order of priority" do
@@ -40,5 +40,6 @@ describe TopicsController do
       assigns(:topics).first.should eq @topics.last
       assigns(:topics).last.should eq @topics.first
     end
+
   end
 end
