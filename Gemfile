@@ -66,4 +66,6 @@ end
 group :test, :development do
   # Helps with automatic creation of factories
   gem 'factory_girl_rails'
+  gem 'jasmine-rails'
+  gem 'jasmine-jquery-rails'
 end
