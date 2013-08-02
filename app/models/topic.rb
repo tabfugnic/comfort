@@ -9,7 +9,7 @@ class Topic < ActiveRecord::Base
 
   ## Get priority topic based upon aggregate ratings
   def priority
-    return 0 if ratings.length == 0
+    return nil if ratings.length == 0
     ratings.inject(0) { |sum, rating| sum + rating.priority } / ratings.length
   end
 

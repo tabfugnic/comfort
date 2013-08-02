@@ -13,7 +13,6 @@ describe Topic do
       FactoryGirl.build(:topic, name: "" ).should_not be_valid
       FactoryGirl.build(:topic, name: nil ).should_not be_valid
     end
-
   end
 
   describe "#priority" do
@@ -23,7 +22,7 @@ describe Topic do
     end
     it "returns 0 if there are no ratings" do
       topic = FactoryGirl.create(:topic)
-      topic.priority.should eq 0
+      topic.priority.should be_nil
     end
   end
 end
