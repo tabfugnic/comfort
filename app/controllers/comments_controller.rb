@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "There was a problem when commenting"
     end
-    redirect_to topic_path(@comment.commentable_id)
+    redirect_to @comment.topic
   end
 
   def update

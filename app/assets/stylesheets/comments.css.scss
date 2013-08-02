@@ -1,13 +1,13 @@
 .comment {
-  padding: 5px;
-  border-bottom: 1px dotted #888;
   overflow: hidden;
+  display: block;
   .posted_on, .reply {
     font-size: 80%;
     margin: 0;
+    display: inline;
   }
   .posted_on {
-    float: left;
+
   }
   .reply {
     float: right;
@@ -16,4 +16,8 @@
     padding-left: 4px;
     border-left: 2px solid #aa0;
   }
+  &.comment {
+    padding-left: 20px;
+  }
+
 }
