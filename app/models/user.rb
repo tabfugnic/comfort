@@ -29,5 +29,14 @@ class User < ActiveRecord::Base
     return "#{first_name} #{last_name}".strip if first_name
     return email
   end
+
+  ##
+  # returns personal priority of specific topic
+  #
+
+  def priority(topic)
+    ratings.where(topic_id: topic.id).first.try(:priority)
+  end
+
 end
 

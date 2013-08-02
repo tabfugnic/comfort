@@ -32,5 +32,19 @@ describe User do
       user.display_name.should eq user.email
     end
   end
+
+  describe "#priority" do
+    let(:topic) { FactoryGirl.create(:topic) }
+    let(:user) { FactoryGirl.create(:user) }
+
+    it "returns personal priority on topic" do
+      rating = FactoryGirl.create(:rating, topic: topic, user: user)
+      user.priority(topic).should == rating.priority
+    end
+
+    it "returns nil when no rating is available" do
+      user.priority(topic).should be_nil
+    end
+  end
 end
 
